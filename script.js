@@ -2,6 +2,7 @@ const base = "./images/";
 var merged = document.getElementById("merged"); // logo
 var state = false; // logo state
 var header = document.getElementById("header");
+var radioButtons = document.getElementsByName("radioGroup");
 
 class ImageShowcase {
     /* Get the element's id by the given name and get their respective image links. */
@@ -36,9 +37,9 @@ function changeImage() {
     currentImageIndex = (currentImageIndex + 1) % dummyArr.length;
 }
 
-function toggleState() {
+function toggleState(newState = undefined /* override state*/) {
     // switch logo state
-    state = !state;
+    state = newState !== undefined ? newState : !state;
     if (state === true) {
         header.innerText = "flo + yet";
     } else {
@@ -50,4 +51,31 @@ function toggleState() {
 var interval = 1000; // 3 seconds
 var toggleInterval = 4000; // 6 seconds
 setInterval(changeImage, interval);
-setInterval(toggleState, toggleInterval);
+var toggleStateId;
+
+function startToggleState() {
+    toggleStateId = setInterval(toggleState, toggleInterval);
+}
+
+function stopToggleState(state) {
+    toggleState(state);
+    clearInterval(toggleStateId);
+}
+
+startToggleState();
+for (var i = 0; i < radioButtons.length; i++) {
+    radioButtons[i].addEventListener("change", function () {
+        if (this.checked) {
+            switch (this.value) {
+                case "ind":
+                    stopToggleState(true);
+                    break;
+                case "org":
+                    stopToggleState(false);
+                    break;
+                default:
+                    startToggleState();
+            }
+        }
+    });
+}
