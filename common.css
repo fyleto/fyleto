@@ -1,0 +1,17 @@
+/*
+How all the pages are laid out will go here, so that you can edit one css file to change the layout. 
+Anything specific to the page should go to it's own style.css file.
+*/
+
+html {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(63, 99, 131);
+    color: rgb(250, 194, 194);
+    font-size: 1.7em;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
