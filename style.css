@@ -1,0 +1,51 @@
+#split {
+    /* define the 2 images box to be shown for me and flo. */
+    opacity: 0;
+    transition: opacity 0s linear;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#split > div {
+    /* For every child of the 2 images box, that is a DIV: */
+    flex: 6;
+    transition: flex 1s;
+    justify-self: center;
+}
+
+#merged {
+    /* define company logo image that shows when the 2 images combine. */
+    opacity: 1;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: opacity 1s linear;
+    text-align: center;
+    position: fixed;
+}
+
+#merged.switch ~ #split {
+    /* When the 'switch' class is toggled on the logo, Change the following for the 2 images box:*/
+    opacity: 1;
+    transition: opacity 2s linear;
+    visibility: visible;
+    align-items: center;
+    justify-content: space-around;
+}
+#merged.switch ~ #split > div {
+    /* When the 'switch' class is toggled on the logo, Change the following for every child of the 2 images box, that is a DIV:  */
+    flex: 0;
+}
+
+#merged.switch {
+    /* When the 'switch' class is toggled on the logo, Change the following for itself:*/
+    opacity: 0;
+    transition: opacity 1s linear;
+}
+
+img {
+    /* make images same size */
+    width: 12em;
+    height: 12em;
+    border-radius: 8px;
+}
