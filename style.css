@@ -6,6 +6,12 @@
     flex-direction: row;
     justify-content: center;
 }
+#ind {
+    display: none;
+}
+#org {
+    display: inherit;
+}
 
 #split > div {
     /* For every child of the 2 images box, that is a DIV: */

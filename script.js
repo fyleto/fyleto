@@ -3,6 +3,10 @@ var merged = document.getElementById("merged"); // logo
 var state = false; // logo state
 var header = document.getElementById("header");
 var radioButtons = document.getElementsByName("radioGroup");
+var socials = {
+    ind: document.getElementById("ind"),
+    org: document.getElementById("org"),
+};
 
 class ImageShowcase {
     /* Get the element's id by the given name and get their respective image links. */
@@ -42,8 +46,12 @@ function toggleState(newState = undefined /* override state*/) {
     state = newState !== undefined ? newState : !state;
     if (state === true) {
         header.innerText = "flo + yet";
+        socials.ind.style.display = "block";
+        socials.org.style.display = "none";
     } else {
         header.innerText = "fyleto";
+        socials.ind.style.display = "none";
+        socials.org.style.display = "block";
     }
     merged.classList.toggle("switch", state);
 }
