@@ -1,6 +1,7 @@
 const base = "./images/";
 var merged = document.getElementById("merged"); // logo
 var state = false; // logo state
+var header = document.getElementById("header");
 
 class ImageShowcase {
     /* Get the element's id by the given name and get their respective image links. */
@@ -38,6 +39,11 @@ function changeImage() {
 function toggleState() {
     // switch logo state
     state = !state;
+    if (state === true) {
+        header.innerText = "flo + yet";
+    } else {
+        header.innerText = "fyleto";
+    }
     merged.classList.toggle("switch", state);
 }
 
